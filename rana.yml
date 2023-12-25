@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: imagekube
+
+
+spec:
+  selector: 
+    matchLabels:
+      app: Muhammed
+  replicas: 7
+  template:
+    metadata:
+      name: my-first-pod
+      labels:
+        app: Muhammed
+    spec:
+      containers:
+        - image: ranaebrahim6/nginx-fci
+          name: nginx-container
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+            requests:
+              memory: "100Mi"
+
